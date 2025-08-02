@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: huacnlee/zed-extension-action@v1
         with:
-          extension-name: twilight
+          extension-name: tm-twilight
           # extension-path: extensions/${{ extension-name }}
           push-to: waldirbertazzijr/extensions
         env:
