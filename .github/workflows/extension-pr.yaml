@@ -2,17 +2,25 @@ on:
   push:
     tags:
       - "v*"
+  # Manual retry: re-run the release for an existing tag without re-tagging.
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag to release (e.g. v0.0.3)"
+        required: true
 
 jobs:
-  homebrew:
+  release:
     name: Release Zed Extension
     runs-on: ubuntu-latest
     steps:
-      - uses: huacnlee/zed-extension-action@v1
+      - uses: huacnlee/zed-extension-action@v2
         with:
           extension-name: tm-twilight
-          # extension-path: extensions/${{ extension-name }}
           push-to: waldirbertazzijr/extensions
+          # Empty on tag pushes, so the action falls back to the pushed tag.
+          tag: ${{ inputs.tag }}
         env:
-          # the personal access token should have "repo" & "workflow" scopes
+          # Must be a *classic* PAT with "repo" & "workflow" scopes — a fine-grained
+          # token cannot open PRs on zed-industries/extensions.
           COMMITTER_TOKEN: ${{ secrets.COMMITTER_TOKEN }}

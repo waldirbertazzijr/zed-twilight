@@ -1,7 +1,7 @@
 id = "tm-twilight"
 name = "Twilight"
-version = "0.0.2"
+version = "1.0.0"
 schema_version = 1
 authors = ["waldirbertazzijr"]
-description = "A direct port of TextMate Twilight theme"
+description = "TextMate's Twilight theme for Zed: a readable default, a darker-gutter variant, and the classic port"
 repository = "https://github.com/waldirbertazzijr/zed-twilight"

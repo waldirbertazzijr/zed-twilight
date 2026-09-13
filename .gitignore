@@ -1,0 +1,3 @@
+.DS_Store
+# local tooling (theme generator + contrast report), kept out of the published extension
+scripts/
